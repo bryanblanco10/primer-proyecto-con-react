@@ -1,22 +1,23 @@
 import React, {Component} from 'react'
-// Components
+// components
 import SliderComponent from './SliderComponent'
 import SideBarComponent from './SideBarComponent'
 import ArticlesComponent from './ArticlesComponent'
 
-class BlogComponent extends Component{
+class SearchComponent extends Component{
 	render(){
+		let search = this.props.match.params.search
 		return(
 			<div id="blog">
 				{/*Slider*/}
 	      <SliderComponent
-	        title="Blog"
+	        title={'Busqueda: ' + search}
 	        size="slider-small"
 	      />
 	      <div className="center">
 		      <div id="content">
 						{/*List Articles*/}
-						<ArticlesComponent />
+						<ArticlesComponent search={search} />
 					</div>
 					<SideBarComponent blog="true" />
 	      </div>
@@ -25,4 +26,4 @@ class BlogComponent extends Component{
 	}
 }
 
-export default BlogComponent
+export default SearchComponent
